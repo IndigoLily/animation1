@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<style>
+		html {
+			cursor: none;
+		}
+		body {
+			background: #ef3340;
+		}
+
+		@keyframes spin-vert {
+			0% {transform:translate(-50%, -50%) rotate(0deg);}
+			100% {transform:translate(-50%, -50%) rotate(360deg);}
+		}
+		@keyframes spin-horiz {
+			0% {transform:translate(-50%, -50%) rotate(90deg);}
+			100% {transform:translate(-50%, -50%) rotate(450deg);}
+		}
+		.loading {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background: rgba(255,255,255,0);
+			animation: spin-vert 5s linear infinite;
+			margin: 0;
+			padding: 0;
+		}
+		#horiz {
+			transform: translate(-50%, -50%) rotate(90deg);
+			animation: spin-horiz 5s linear infinite;
+		}
+		.dots {
+			position: relative;
+			height: 7.5vmin;
+			width: 7.5vmin;
+			background: #fff;
+            border: 1.5px solid #fff;
+			border-radius: 100%;
+			box-shadow: 0 0 5vmin rgba(0,0,0,.3);
+		}
+
+		@keyframes size {
+			0% {height: 40vmin;}
+			100% {height: 25vmin;}
+		}
+		#middle {
+			height: 40vmin;
+			background: rgba(255,255,255,0);
+			animation: size 2s ease-in-out infinite alternate;
+		}
+	</style>
+</head>
+
+<body>
+
+<div class="loading">
+	<div class="dots"></div>
+		<div id="middle"></div>
+	<div class="dots"></div>
+</div>
+<div class="loading" id="horiz">
+	<div class="dots"></div>
+		<div id="middle"></div>
+	<div class="dots"></div>
+</div>
+
+</body>
+</html>
